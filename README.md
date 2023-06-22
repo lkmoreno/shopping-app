@@ -1,0 +1,2 @@
+# shopping-app
+usign angular

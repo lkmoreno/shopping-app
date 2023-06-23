@@ -13,7 +13,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   @Input('img')
   set changeImg(newImg: string) {
     this.img = newImg;
-    console.log('change just img  =>' ,this.img);
+   // console.log('change just img  =>' ,this.img);
     // code
   }
 
@@ -26,7 +26,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   constructor() {
     // before render no correr cosas asincronas y el constructor corre una sola vez
     // NO async -- once time
-    console.log('constructor', 'imgValue =>', this.img);
+    //console.log('constructor', 'imgValue =>', this.img);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -34,8 +34,8 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // estar actualizando los cambios en los inputs -- puede correr las veces que se cambie
     // before - during render
     // changes inputs -- multiples times
-    console.log('ngOnChanges', 'imgValue =>', this.img);
-    console.log('changes', changes);
+   // console.log('ngOnChanges', 'imgValue =>', this.img);
+    //console.log('changes', changes);
     // if (changes.) {
     //   // code
     // }
@@ -46,7 +46,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // aqui se pueden correr cosas asincronas ejem fetch, llamados api y se corre una sola vez
     // before render
     // async - fetch -- once time
-    console.log('ngOnInit', 'imgValue =>', this.img);
+    //console.log('ngOnInit', 'imgValue =>', this.img);
     // this.counterFn = window.setInterval(() => {
     //   this.counter += 1;
     //   console.log('run counter');
@@ -58,12 +58,12 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // aqui se manejan los componentes hijos
     // after render
     // handler children -- once time
-    console.log('ngAfterViewInit');
+    //console.log('ngAfterViewInit');
   }
 
   ngOnDestroy() {
     //cuando se elimina el componente una sola vez
-    console.log('ngOnDestroy');
+    //console.log('ngOnDestroy');
     // window.clearInterval(this.counterFn);
   }
 
@@ -72,7 +72,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   }
 
   imgLoaded() {
-    console.log('log hijo');
+    //console.log('log hijo');
     this.loaded.emit(this.img);
   }
 

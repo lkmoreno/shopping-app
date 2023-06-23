@@ -1,18 +1,28 @@
-<p>
-  La cantidad {{ myShoppingCart.length }}
-</p>
-<p>
-  total ${{total}}
-</p>
-<p>Today: {{ today | date:'short'}}</p>
-<p>Today: {{ today | timeAgo}}</p>
+<button (click)="createNewProduct()">create</button>
+<button (click)="onShowDetail('45645')">detalle inexist</button>
 
-<p>otra fecha: {{ date | date:'yyyy.dd.MM'}}</p>
-<p>{{'hola bsDSDvaasDGD' | uppercase}}</p>
 <div class="products--grid">
   <app-product
     [product]="product"
     *ngFor="let product of products"
     (addedProduct)="onAddToShoppingCart($event)"
+    (showProduct)="onShowDetail($event)"
   ></app-product>
+  <button (click)="loadData()">load more</button>
+</div>
+<div class="product-detail" [class.active]="showProductDetail">
+  {{statusDetail}}
+  <div *ngIf="productChosen">
+    <button (click)="toggleProductDetail()">Close</button>
+    <h1>{{ productChosen.title }}</h1>
+    <swiper-container>
+      <swiper-slide *ngFor="let img of productChosen.images">
+        <img [src]="img" [alt]="productChosen.title" />
+      </swiper-slide>
+    </swiper-container>
+    <p>{{ productChosen.description }}</p>
+    <button (click)="updateProduct()">editar</button>
+    <button (click)="deleteProduct()">borrar</button>
+
+  </div>
 </div>
